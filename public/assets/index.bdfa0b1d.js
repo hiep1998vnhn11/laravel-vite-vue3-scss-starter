@@ -1,1 +1,0 @@
-import{_ as a}from"./app.04557d1b.js";import{d as e,k as r,e as n,o as s}from"./vendor.1a9aaff2.js";var d=a(e({name:"Index",setup:()=>(r((()=>{})),{})}),[["render",function(a,e,r,d,o,t){return s(),n("div",null,"index")}]]);export{d as default};
