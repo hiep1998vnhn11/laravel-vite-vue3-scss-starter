@@ -14,3 +14,6 @@ yarn-error.log
 /.idea
 /.vscode
 composer.lock
+public/assets
+public/_app.config.js
+public/manifest.json
