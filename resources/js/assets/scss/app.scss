@@ -1,8 +1,8 @@
 @import 'variables';
 @import 'include-media';
 @import 'others';
+@import 'helpers';
 @import 'themes';
-@import 'player.scss';
 @import 'transition';
 body {
   font-family: $font-family-normal;
