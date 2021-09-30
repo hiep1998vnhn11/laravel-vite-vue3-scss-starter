@@ -3,17 +3,17 @@ import { TrelloContainer } from '/@/container'
 export default [
     {
         path: '/trello',
-        name: 'Discord',
+        name: 'Trello',
         component: TrelloContainer,
         children: [
             {
                 path: '/',
-                name: 'DiscordIndex',
+                name: 'TrelloIndex',
                 component: () => import('/@/pages/discord/index.vue'),
             },
             {
                 path: '/test',
-                name: 'DiscordTest',
+                name: 'TrelloTest',
                 component: () => import('/@/pages/discord/index.vue'),
             },
         ],

@@ -8,7 +8,7 @@
     <title>{{config('app.name')}}</title>
     @env('production')
     {{-- Production --}}
-    @foreach ($manifest['resources/js/app.ts']['css'] as $css):
+    @foreach ($manifest['resources/js/app.ts']['css'] as $css)
     <link rel="stylesheet" href="{{ config('app.url') . '/' .$css }}" />
     @endforeach
     <script src="/_app.config.js"></script>

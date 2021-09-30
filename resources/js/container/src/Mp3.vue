@@ -1,17 +1,62 @@
 <template>
-    <div>
-        discord
-        <router-view></router-view>
+    <div class="default-layout">
+        <Sidebar />
+        <section class="content">
+            <perfect-scrollbar>
+                <Header />
+                <div class="wrapper">
+                    <router-view />
+                </div>
+            </perfect-scrollbar>
+        </section>
     </div>
 </template>
+
 <script lang="ts">
-import { onMounted, defineComponent } from 'vue'
-export default defineComponent({
-    name: 'Mp3',
-    setup() {
-        onMounted(() => {})
-        return {}
+import { useStore } from 'vuex'
+import Header from './mp3/Header.vue'
+import Sidebar from './mp3/Sidebar.vue'
+export default {
+    components: {
+        Header,
+        Sidebar,
     },
-})
+    setup() {
+        const store = useStore()
+        return {
+            store,
+        }
+    },
+}
 </script>
-<style lang="scss" scoped></style>
+
+<style lang="scss" scoped>
+$additional-width: $sidebar-width + $queue-playlist-width;
+.default-layout {
+    position: relative;
+}
+.content {
+    margin-left: $sidebar-width;
+    width: calc(100% - #{$additional-width});
+    transition: width 0.3s;
+
+    & > .ps {
+        height: 100vh;
+    }
+    @include media('<large', '>medium') {
+        width: calc(100% - #{$sidebar-width}) !important;
+    }
+    @include media('<medium') {
+        margin-left: $sidebar-width-m !important;
+        width: calc(100% - #{$sidebar-width-m}) !important;
+    }
+
+    min-width: 720px;
+}
+.wrapper {
+    padding: 42px 45px 100px 58px;
+    @include media('<large') {
+        padding: 20px 38px 100px 38px !important;
+    }
+}
+</style>

@@ -1,0 +1,13 @@
+@import 'flex';
+@import 'grid';
+@import 'width';
+@import 'height';
+@import '/@/assets/scss/mixins';
+
+.container {
+  max-width: 1024px;
+  width: 100%;
+  background: red;
+  display: flex;
+  justify-content: space-between;
+}

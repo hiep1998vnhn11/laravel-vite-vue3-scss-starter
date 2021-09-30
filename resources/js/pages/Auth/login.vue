@@ -3,8 +3,6 @@
         <form ref="form" class="login__form">
             <div class="login__form__input">
                 <input />
-                <Textarea v-model:value="text" class="m-t-5" />
-                <Card />
             </div>
         </form>
     </div>

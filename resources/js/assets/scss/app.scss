@@ -1,9 +1,9 @@
-@import 'variables';
 @import 'include-media';
 @import 'others';
 @import 'helpers';
 @import 'themes';
 @import 'transition';
+@import 'responsive';
 body {
   font-family: $font-family-normal;
 }

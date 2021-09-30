@@ -73,8 +73,15 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         plugins: createVitePlugins(viteEnv, isBuild),
 
         optimizeDeps: {
-            include: ['@iconify/iconify', 'moment/dist/locale/vi'],
+            include: ['moment/dist/locale/vi'],
             exclude: ['vue-demi'],
+        },
+        css: {
+            preprocessorOptions: {
+                scss: {
+                    additionalData: ` @import '/@/assets/scss/variables'; @import "/@/assets/scss/include-media"; `,
+                },
+            },
         },
     }
 }

@@ -6,6 +6,7 @@
 </template>
 <script lang="ts">
 import { onMounted, defineComponent } from 'vue'
+import { useFavicon } from '@vueuse/core'
 import TrelloNavbar from './trello/Navbar.vue'
 export default defineComponent({
     name: 'Trello',
@@ -13,7 +14,11 @@ export default defineComponent({
         TrelloNavbar,
     },
     setup() {
-        onMounted(() => {})
+        const favicon = useFavicon()
+
+        onMounted(() => {
+            favicon.value = '/images/trello/favicon.ico'
+        })
         return {}
     },
 })

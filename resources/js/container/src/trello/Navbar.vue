@@ -1,6 +1,8 @@
 <template>
     <div class="trello-navbar">
         <div class="trello-navbar__left">
+            <div class="trello-navbar__app-icon"></div>
+
             <router-link to="/trello" class="trello-navbar__gohome">
                 <div class="trello-navbar__icon"></div>
             </router-link>
@@ -14,6 +16,7 @@
 <script lang="ts">
 import { onMounted, ref, defineComponent } from 'vue'
 import { Dropdown } from '/@/components/Common'
+
 export default defineComponent({
     name: 'TrelloNavbar',
     components: {
@@ -35,6 +38,13 @@ export default defineComponent({
     width: 100%;
     justify-content: space-between;
     background: #0569a7;
+
+    &__app-icon {
+        padding: 10px;
+    }
+    &__left {
+        display: flex;
+    }
 
     &__gohome {
         margin: 0 10px 0 6px;

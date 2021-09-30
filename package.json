@@ -8,15 +8,13 @@
         "start": "vite preview",
         "prod": "rm -rf public/assets && rm -f public/manifest.json && cross-env NODE_ENV=production vite build && esno ./build/script/postBuild.ts",
         "production": "cross-env NODE_ENV=production vite build && esno ./build/script/postBuild.ts",
-        "build": "cross-env NODE_ENV=production vite build && esno ./build/script/postBuild.ts",
-        "gen:icon": "esno ./build/generate/icon/index.ts"
+        "build": "cross-env NODE_ENV=production vite build && esno ./build/script/postBuild.ts"
     },
     "devDependencies": {
-        "@iconify/json": "^1.1.380",
-        "@purge-icons/generated": "^0.7.0",
         "@types/codemirror": "^5.60.2",
         "@types/crypto-js": "^4.0.1",
         "@types/fs-extra": "^9.0.12",
+        "@types/howler": "^2.2.4",
         "@types/inquirer": "^7.3.3",
         "@types/intro.js": "^3.0.1",
         "@types/js-cookie": "^2.2.6",
@@ -41,15 +39,12 @@
         "vite-plugin-html": "^2.0.7",
         "vite-plugin-imagemin": "^0.3.2",
         "vite-plugin-mock": "^2.8.0",
-        "vite-plugin-purge-icons": "^0.7.0",
         "vite-plugin-pwa": "^0.8.1",
         "vite-plugin-style-import": "^1.0.1",
-        "vite-plugin-svg-icons": "^1.0.0",
         "vite-plugin-theme": "^0.8.1",
         "vue-tsc": "^0.0.24"
     },
     "dependencies": {
-        "@iconify/iconify": "^2.0.3",
         "@logicflow/core": "^0.6.0",
         "@logicflow/extension": "^0.6.0",
         "@types/lodash-es": "^4.17.4",
@@ -62,6 +57,7 @@
         "cropperjs": "^1.5.12",
         "crypto-js": "^4.0.0",
         "echarts": "^5.1.2",
+        "howler": "^2.2.3",
         "include-media": "^1.4.10",
         "intro.js": "^4.1.0",
         "js-cookie": "^2.2.1",
@@ -83,7 +79,9 @@
         "vue-router": "^4.0.4",
         "vue-sweetalert2": "^5.0.2",
         "vue-textarea-autosize": "^1.1.1",
+        "vue-tippy": "^6.0.0-alpha.28",
         "vue-types": "^4.0.0",
+        "vue3-perfect-scrollbar": "^1.5.5",
         "vuex": "^4.0.0",
         "xlsx": "^0.17.0"
     }

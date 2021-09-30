@@ -4,16 +4,18 @@ import { createRouter, createWebHistory } from 'vue-router'
 import authRoutes from './routes/auth'
 import discordRoute from './routes/discord'
 import trelloRoute from './routes/trello'
+import mp3Route from './routes/mp3'
 const routes: RouteRecordRaw[] = [
-    ...authRoutes,
-    ...discordRoute,
-    ...trelloRoute,
     { path: '/', name: 'Index', component: () => import('/@/pages/index.vue') },
     {
         path: '/test',
         name: 'Test',
         component: () => import('/@/pages/test.vue'),
     },
+    ...authRoutes,
+    ...discordRoute,
+    ...trelloRoute,
+    ...mp3Route,
     {
         path: '/:pathMatch(.*)*',
         name: '404',
