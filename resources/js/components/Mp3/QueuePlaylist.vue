@@ -1,66 +1,3 @@
-<script lang="ts">
-import { ref, watch } from 'vue'
-import { usePlayer } from '@/composables'
-import QueueSong from './song/queue.vue'
-export default {
-    components: { QueueSong },
-    setup() {
-        const current = ref('playing')
-        const scrollbar = ref()
-        const recent = ref()
-        const isSticky = ref(false)
-        const player = usePlayer()
-
-        watch(player.currentSongId, () => {
-            setTimeout(() => {
-                const target: any = Array.from(recent.value.children).find(
-                    (ele: any) => ele.classList.contains('active')
-                )
-                if (target) {
-                    const ele = scrollbar.value.$el
-                    let y = target.offsetTop - target.offsetHeight * 2.5
-                    if (y < 0) y = 0
-                    ele.scroll({
-                        behavior: 'smooth',
-                        left: 0,
-                        top: y,
-                    })
-                }
-            }, 500)
-        })
-
-        function clickAway() {
-            player.isShowQueuePlaylist.value = false
-        }
-        watch(player.isShowQueuePlaylist, (val) => {
-            if (val) {
-                setTimeout(() => {
-                    document.addEventListener('click', clickAway)
-                }, 1000)
-            } else {
-                document.removeEventListener('click', clickAway)
-            }
-        })
-
-        function handleScroll(ev: any) {
-            const target = ev.target
-            if (target.scrollTop > 10) {
-                isSticky.value = true
-            } else {
-                isSticky.value = false
-            }
-        }
-        return {
-            current,
-            ...player,
-            isSticky,
-            scrollbar,
-            handleScroll,
-            recent,
-        }
-    },
-}
-</script>
 <template>
     <aside :class="{ fixed: isShowQueuePlaylist }" @click.stop>
         <perfect-scrollbar @ps-scroll-y="handleScroll" ref="scrollbar">
@@ -121,6 +58,70 @@ export default {
         </perfect-scrollbar>
     </aside>
 </template>
+
+<script lang="ts">
+import { ref, watch, defineComponent } from 'vue'
+import usePlayer from '/@/hooks/mp3/usePlayer'
+import QueueSong from './song/queue.vue'
+export default defineComponent({
+    components: { QueueSong },
+    setup() {
+        const current = ref('playing')
+        const scrollbar = ref()
+        const recent = ref()
+        const isSticky = ref(false)
+        const player = usePlayer()
+
+        watch(player.currentSongId, () => {
+            setTimeout(() => {
+                const target: any = Array.from(recent.value.children).find(
+                    (ele: any) => ele.classList.contains('active')
+                )
+                if (target) {
+                    const ele = scrollbar.value.$el
+                    let y = target.offsetTop - target.offsetHeight * 2.5
+                    if (y < 0) y = 0
+                    ele.scroll({
+                        behavior: 'smooth',
+                        left: 0,
+                        top: y,
+                    })
+                }
+            }, 500)
+        })
+
+        function clickAway() {
+            player.isShowQueuePlaylist.value = false
+        }
+        watch(player.isShowQueuePlaylist, (val) => {
+            if (val) {
+                setTimeout(() => {
+                    document.addEventListener('click', clickAway)
+                }, 1000)
+            } else {
+                document.removeEventListener('click', clickAway)
+            }
+        })
+
+        function handleScroll(ev: any) {
+            const target = ev.target
+            if (target.scrollTop > 10) {
+                isSticky.value = true
+            } else {
+                isSticky.value = false
+            }
+        }
+        return {
+            current,
+            ...player,
+            isSticky,
+            scrollbar,
+            handleScroll,
+            recent,
+        }
+    },
+})
+</script>
 
 <style lang="scss" scoped>
 $border-radius: 999px;

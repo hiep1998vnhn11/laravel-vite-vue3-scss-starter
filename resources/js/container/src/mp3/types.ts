@@ -1,5 +1,5 @@
 import { ComputedRef, WritableComputedRef } from '@vue/reactivity'
-import Player from '/@/helpers/mp3/player'
+import Player from '/@/hooks/mp3/player'
 
 export interface NavBar {
     title: string
@@ -75,10 +75,10 @@ export interface Artist {
 
 export interface UsePlayer {
     [key: string]: any
-    currentSong: ComputedRef<Song>
-    currentSongId: ComputedRef<string>
-    currentPlaylist: ComputedRef<Playlist>
-    currentPlaylistId: ComputedRef<string>
+    currentSong: ComputedRef<Nullable<Song>>
+    currentSongId: ComputedRef<string | undefined>
+    currentPlaylist: ComputedRef<Nullable<Playlist>>
+    currentPlaylistId: ComputedRef<string | undefined>
     repeat: ComputedRef<string>
     volume: WritableComputedRef<number>
     isMuted: WritableComputedRef<boolean>

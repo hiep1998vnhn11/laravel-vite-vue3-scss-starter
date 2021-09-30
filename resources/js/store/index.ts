@@ -10,12 +10,15 @@ import actions from './actions'
 // import lock from "./modules/lock";
 // import multipleTab from "./modules/multipleTab";
 // import permission from "./modules/permission";
+import mp3 from './modules/mp3'
 
 const store = createStore<any>({
     state,
     mutations,
     actions,
-    modules: {},
+    modules: {
+        mp3,
+    },
 })
 
 export function setupStore(app: App<Element>) {

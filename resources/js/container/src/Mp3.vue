@@ -9,6 +9,7 @@
                 </div>
             </perfect-scrollbar>
         </section>
+        <QueuePlaylist />
     </div>
 </template>
 
@@ -16,10 +17,12 @@
 import { useStore } from 'vuex'
 import Header from './mp3/Header.vue'
 import Sidebar from './mp3/Sidebar.vue'
+import QueuePlaylist from '/@/components/Mp3/QueuePlaylist.vue'
 export default {
     components: {
         Header,
         Sidebar,
+        QueuePlaylist,
     },
     setup() {
         const store = useStore()
