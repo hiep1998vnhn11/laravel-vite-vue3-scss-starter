@@ -7,12 +7,22 @@ export default [
         component: Mp3Container,
         children: [
             {
-                path: '/',
-                name: 'TrelloIndex',
-                component: () => import('/@/pages/discord/index.vue'),
+                path: '',
+                name: 'Mp3Index',
+                component: () => import('/@/pages/mp3/index.vue'),
             },
             {
-                path: '/test',
+                path: 'album/:path/:id.html',
+                name: 'Mp3Album',
+                component: () => import('/@/pages/mp3/test.vue'),
+            },
+            {
+                path: 'bai-hat/:path/:id.html',
+                name: 'Mp3Baihat',
+                component: () => import('/@/pages/mp3/bai-hat.vue'),
+            },
+            {
+                path: 'test',
                 name: 'TrelloTest',
                 component: () => import('/@/pages/discord/index.vue'),
             },

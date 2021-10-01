@@ -28,10 +28,8 @@
                     :key="'artist' + index"
                 >
                     <a href="#">
-                        {{ artist.name
-                        }}<span v-if="index !== song.artists.length - 1"
-                            >,
-                        </span>
+                        {{ artist.name }}
+                        <span v-if="index !== song.artists.length - 1">, </span>
                     </a>
                 </template>
             </div>
@@ -42,8 +40,9 @@
 
 <script lang="ts">
 import usePlayer from '/@/hooks/mp3/usePlayer'
-import { computed, inject, onMounted, ref } from 'vue'
-export default {
+import { computed, defineComponent, ref } from 'vue'
+export default defineComponent({
+    name: 'SongQueue',
     props: {
         song: {
             type: Object,
@@ -73,7 +72,7 @@ export default {
             ele,
         }
     },
-}
+})
 </script>
 
 <style lang="scss" scoped>

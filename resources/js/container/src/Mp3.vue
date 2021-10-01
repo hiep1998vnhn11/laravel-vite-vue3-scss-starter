@@ -15,7 +15,7 @@
 
 <script lang="ts">
 import { useStore } from 'vuex'
-import Header from './mp3/Header.vue'
+import Header from './mp3/Mp3Header.vue'
 import Sidebar from './mp3/Sidebar.vue'
 import QueuePlaylist from '/@/components/Mp3/QueuePlaylist.vue'
 export default {

@@ -62,8 +62,9 @@
 <script lang="ts">
 import { ref, watch, defineComponent } from 'vue'
 import usePlayer from '/@/hooks/mp3/usePlayer'
-import QueueSong from './song/queue.vue'
+import QueueSong from './song/Queue.vue'
 export default defineComponent({
+    name: 'QueuePlaylist',
     components: { QueueSong },
     setup() {
         const current = ref('playing')

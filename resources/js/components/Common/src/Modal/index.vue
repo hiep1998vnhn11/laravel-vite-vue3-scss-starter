@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { computed, defineComponent } from 'vue'
 
 export default defineComponent({
     name: 'Modal',
@@ -27,12 +27,14 @@ export default defineComponent({
         title: { type: String, default: '' },
     },
     setup(props, { emit }) {
+        const value = computed(() => props.value)
         function handleClose() {
             emit('closeModal')
         }
         return {
             handleClose,
-            ...props,
+            title: props.title,
+            value,
         }
     },
 })
