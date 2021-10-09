@@ -7,14 +7,19 @@ export default [
         component: TrelloContainer,
         children: [
             {
-                path: '/',
+                path: '',
                 name: 'TrelloIndex',
-                component: () => import('/@/pages/discord/index.vue'),
+                component: () => import('/@/pages/trello/index.vue'),
             },
             {
-                path: '/test',
-                name: 'TrelloTest',
-                component: () => import('/@/pages/discord/index.vue'),
+                path: 'boards',
+                name: 'TrelloBoards',
+                component: () => import('/@/pages/trello/index.vue'),
+            },
+            {
+                path: ':url',
+                name: 'TrelloUrl',
+                component: () => import('/@/pages/trello/_url.vue'),
             },
         ],
     },

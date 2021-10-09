@@ -10,14 +10,19 @@
                 <component :is="Component" :key="keyRoute" />
             </transition>
         </router-view>
+        <app-button />
     </div>
 </template>
 <script lang="ts">
 import { computed, defineComponent } from 'vue'
 import { useRoute } from 'vue-router'
 import { useDark } from '/@/hooks/app/useDark'
+import AppButton from './components/AppButton.vue'
 export default defineComponent({
     name: 'Container',
+    components: {
+        AppButton,
+    },
     setup() {
         const route = useRoute()
         const keyRoute = computed(() => route.fullPath)

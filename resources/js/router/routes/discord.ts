@@ -7,12 +7,12 @@ export default [
         component: DiscordContainer,
         children: [
             {
-                path: '/',
+                path: '',
                 name: 'DiscordIndex',
                 component: () => import('/@/pages/discord/index.vue'),
             },
             {
-                path: '/test',
+                path: 'test',
                 name: 'DiscordTest',
                 component: () => import('/@/pages/discord/index.vue'),
             },

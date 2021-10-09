@@ -1,13 +1,24 @@
 <template>
-    <div>Discord Index</div>
+    <div>
+        <input-text @send="onSend" />
+    </div>
 </template>
 <script lang="ts">
 import { onMounted, ref, defineComponent } from 'vue'
+import InputText from '/@/components/TextInput'
 export default defineComponent({
     name: 'DiscordIndex',
+    components: {
+        InputText,
+    },
     setup() {
         onMounted(() => {})
-        return {}
+        const onSend = (text: string) => {
+            console.log(text)
+        }
+        return {
+            onSend,
+        }
     },
 })
 </script>
